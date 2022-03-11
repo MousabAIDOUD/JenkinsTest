@@ -22,6 +22,7 @@ class CalculatorTest {
     void divison() {
         //GIVEN 8/4
         assertEquals(4 , Calculator.divison(8,2) );
+        assertEquals(8 , Calculator.divison(16,2) );
     }
 
     @Test
