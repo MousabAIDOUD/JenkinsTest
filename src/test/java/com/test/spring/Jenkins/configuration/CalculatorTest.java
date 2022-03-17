@@ -1,5 +1,6 @@
 package com.test.spring.Jenkins.configuration;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,5 +30,12 @@ class CalculatorTest {
     void sous() {
         //GIVEN 10-5
         assertEquals(5 , Calculator.sous(10,5) );
+    }
+
+    @Test
+    @DisplayName("sum with other methode")
+    void sumTwoVar() {
+        //GIVEN 1 + 2
+        assertEquals(4 , Calculator.sum(1,3) );
     }
 }
