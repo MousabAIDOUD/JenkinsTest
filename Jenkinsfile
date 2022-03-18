@@ -26,7 +26,7 @@ pipeline {
         }
      }
 
-     stage("Maven Build") {
+     stage('Maven Build') {
 
          steps {
 
@@ -40,7 +40,7 @@ pipeline {
 
      }
 
-     stage("SonarQube Analyse") {
+     stage('SonarQube Analyse') {
          def scannerHome = tool 'sonarqube';
           withSonarQubeEnv('My SonarQube Server') {
                sh "${scannerHome}/bin/sonar-scanner \
