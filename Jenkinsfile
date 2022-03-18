@@ -43,7 +43,9 @@ pipeline {
       stage('SonarQube') {
          steps {
                 withSonarQubeEnv('SonarQube') {
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn clean package sonar:sonar -D sonar.login=admin \
+                                                        -D sonar.password=admin \
+                                                        -D sonar.projectKey=sonarqubetest \'
                                }
                 }
        }
