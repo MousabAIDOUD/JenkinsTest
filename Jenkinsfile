@@ -41,7 +41,6 @@ pipeline {
      }
 
       stage('SonarQube analysis') {
-      def scannerHome = tool 'SonarQube';
          withSonarQubeEnv('SonarQube') {
            sh 'mvn clean package sonar:sonar'
          } // submitted SonarQube taskId is automatically attached to the pipeline context
