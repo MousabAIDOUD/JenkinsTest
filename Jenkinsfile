@@ -48,17 +48,11 @@ pipeline {
                 }
        }
 
-      stage ('Quality gate') {
-          steps {
-
-                  script{
-                                  def qg = waitForQualityGate(credentialsId : 'e7964b2ae1b4e71a30f8d5d002ecb54731b120f8') // Waiting for analysis to be completed
-                                  if(qg.status != 'OK'){ // If quality gate was not met, then present error
-                                      error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                                  }
-                         }
-          }
-      }
+       stage("Quality gate") {
+                   steps {
+                       waitForQualityGate abortPipeline: true
+                   }
+       }
 
 
      stage("Publish to Nexus Repository Manager") {
