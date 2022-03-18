@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     tools {
       maven "Maven"
     }
@@ -10,7 +9,6 @@ pipeline {
                 checkout scm
             }
         }
-
     stage('Maven Build') {
          steps {
              script {
@@ -18,17 +16,14 @@ pipeline {
                      }
                }
      }
-
-
-
-        stage('SonarQube analysis') {
+     stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn clean package sonar:sonar'
                 }
             }
         }
-        stage("Quality gate") {
+     stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
             }
