@@ -40,17 +40,12 @@ pipeline {
 
      }
 
-     stage('SonarQube Analyse') {
-         def scannerHome = tool 'sonarqube';
-          withSonarQubeEnv('My SonarQube Server') {
-               sh "${scannerHome}/bin/sonar-scanner \
-                     -D sonar.login=admin \
-                     -D sonar.password=admin \
-                     -D sonar.projectKey=JenkinsTest \
-                     -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-                     -D sonar.host.url=http://172.16.18.163:9000/"
-             }
-     }
+      stage('SonarQube analysis') {
+         withSonarQubeEnv('My SonarQube Server') {
+           sh 'mvn clean package sonar:sonar'
+         } // submitted SonarQube taskId is automatically attached to the pipeline context
+       }
+
 
      stage("Publish to Nexus Repository Manager") {
 
