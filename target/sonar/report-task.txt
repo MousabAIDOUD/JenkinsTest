@@ -1,0 +1,6 @@
+projectKey=com.test.spring:Jenkins
+serverUrl=http://172.16.18.163:9000
+serverVersion=9.3.0.51899
+dashboardUrl=http://172.16.18.163:9000/dashboard?id=com.test.spring%3AJenkins
+ceTaskId=AX-dIfBYdzbS5qvsnZ3l
+ceTaskUrl=http://172.16.18.163:9000/api/ce/task?id=AX-dIfBYdzbS5qvsnZ3l
