@@ -10,7 +10,7 @@ pipeline {
 
      NEXUS_PROTOCOL = "http"
 
-     NEXUS_URL = "localhost:8081"
+     NEXUS_URL = "172.16.18.163:8081"
 
      NEXUS_REPOSITORY = "maven-nexus-repo"
 
