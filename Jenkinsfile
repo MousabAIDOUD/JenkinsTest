@@ -46,6 +46,10 @@ pipeline {
                 sh 'mvn clean package sonar:sonar -D sonar.login=admin -D sonar.password=root -D sonar.projectKey=sonarqubetest'
                                }
                 }
+                def qualitygate = waitForQualityGate()
+                      if (qualitygate.status != "OK") {
+                         error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+                      }
        }
 
 
