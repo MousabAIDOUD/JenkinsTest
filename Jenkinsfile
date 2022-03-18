@@ -32,7 +32,7 @@ pipeline {
 
              script {
 
-                 sh "mvn package -DskipTests=true"
+                 sh "mvn package"
 
              }
 
@@ -43,7 +43,7 @@ pipeline {
       stage('SonarQube') {
          steps {
                 withSonarQubeEnv('SonarQube') {
-                sh 'mvn clean package sonar:sonar -D sonar.login=admin -D sonar.password=admin -D sonar.projectKey=sonarqubetest'
+                sh 'mvn clean package sonar:sonar -D sonar.login=admin -D sonar.password=root -D sonar.projectKey=sonarqubetest'
                                }
                 }
        }
